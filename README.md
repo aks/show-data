@@ -71,21 +71,21 @@ An example of nested array data:
 The output of the nested array data:
 
     [[0]: [[0]: "a",
-	   [1]: 1.2,
-	   [2]: "b"
-	  ],
+           [1]: 1.2,
+           [2]: "b"
+          ],
      [1]: [[0]: "d",
-	   [1]: :symbol
-	  ],
+           [1]: :symbol
+          ],
      [2]: [[0]: [[0]: "ape",
-		 [1]: "monkey",
-		 [2]: "chimp"
-		],
-	   [1]: [[0]: "banana",
-		 [1]: "leaves"
-		],
-	   [2]: 2.99
-	  ]
+                 [1]: "monkey",
+                 [2]: "chimp"
+                ],
+           [1]: [[0]: "banana",
+                 [1]: "leaves"
+                ],
+           [2]: 2.99
+          ]
     ]
 
 Note that the nested array indexes are aligned independently of the first-level array indexes.
@@ -98,30 +98,30 @@ Of course, hash and array data can be mixed (using the values from the previous 
 The output of the combined array and hashes:
 
     [[0]: { 'a' => "apple",
-	    'b' => "banana",
-	    'c' => "cherry"
-	  },
+            'b' => "banana",
+            'c' => "cherry"
+          },
      [1]: {  'apple' => "a",
-	    'banana' => "b",
-	    'cherry' => "c"
-	  },
+            'banana' => "b",
+            'cherry' => "c"
+          },
      [2]: [[0]: [[0]: "a",
-		 [1]: 1.2,
-		 [2]: "b"
-		],
-	   [1]: [[0]: "d",
-		 [1]: :symbol
-		],
-	   [2]: [[0]: [[0]: "ape",
-		       [1]: "monkey",
-		       [2]: "chimp"
-		      ],
-		 [1]: [[0]: "banana",
-		       [1]: "leaves"
-		      ],
-		 [2]: 2.99
-		]
-	  ]
+                 [1]: 1.2,
+                 [2]: "b"
+                ],
+           [1]: [[0]: "d",
+                 [1]: :symbol
+                ],
+           [2]: [[0]: [[0]: "ape",
+                       [1]: "monkey",
+                       [2]: "chimp"
+                      ],
+                 [1]: [[0]: "banana",
+                       [1]: "leaves"
+                      ],
+                 [2]: 2.99
+                ]
+          ]
     ]
 
 Notice that the 2nd array item, an inverted hash, has its keys right aligned,
