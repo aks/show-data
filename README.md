@@ -1,4 +1,129 @@
 show-data
 =========
 
-Library to display any data in a pretty way.
+Ruby library to display any data in a pretty way.
+
+Author: Alan K. Stebbens, copyright 2009-2013.
+
+Certain principles are applied for increased readability, with an aesthetically pleasing presentation:
+* array values are presented on separate lines
+* array indexes are formatted with fixed widths
+* array values are left-aligned
+* hashes are formatted with the keys right-aligned with the values left-aligned.
+* nested values are properly aligned
+* recognize and format `struct` and `ostruct` types.
+
+Usage:
+
+    require 'show-data'
+    ...
+    show_data any_data
+
+Use `format_data` to capture the data presentation as a string, in order to use
+it in another output stream.  Example:
+
+    Logger.log format_data(some_data)
+
+Examples of output:
+
+    array = [ 1, 2, 3, 10, 11, 12, 1.2, 34.567, 'apple', 'banana', 'cherry', :symbol1, :symbol2,
+            Date.parse("2005-12-25"), Time.parse("2006-07-04 12:01:02") ]
+    show_data array
+
+The output of the array data:
+
+    [[00]: 1,
+     [01]: 2,
+     [02]: 3,
+     [03]: 10,
+     [04]: 11,
+     [05]: 12,
+     [06]: 1.2,
+     [07]: 34.567,
+     [08]: "apple",
+     [09]: "banana",
+     [10]: "cherry",
+     [11]: :symbol1,
+     [12]: :symbol2,
+     [13]: 2005-12-25,
+     [14]: 2006-07-04 12:01:02 -0700
+    ]
+
+Notice that the array indexes are uniform (for 2 digits), while the values are left aligned -- both for readability.
+
+An example of hashed data:
+
+    ahash = { 'a' => 'apple', 'b' => 'banana', 'c' => 'cherry' }
+    show_data ahash
+
+The hashed data output:
+
+    { 'a' => "apple",
+      'b' => "banana",
+      'c' => "cherry"
+    }
+
+An example of nested array data:
+
+    nested = [ [ 'a', 1.2, 'b' ], [ 'd', :symbol ], [ [ 'ape', 'monkey', 'chimp' ], [ 'banana', 'leaves' ], 2.99 ] ]
+    show_data nested
+
+The output of the nested array data:
+
+    [[0]: [[0]: "a",
+	   [1]: 1.2,
+	   [2]: "b"
+	  ],
+     [1]: [[0]: "d",
+	   [1]: :symbol
+	  ],
+     [2]: [[0]: [[0]: "ape",
+		 [1]: "monkey",
+		 [2]: "chimp"
+		],
+	   [1]: [[0]: "banana",
+		 [1]: "leaves"
+		],
+	   [2]: 2.99
+	  ]
+    ]
+
+Note that the nested array indexes are aligned independently of the first-level array indexes.
+
+Of course, hash and array data can be mixed (using the values from the previous examples):
+
+    combo = [ ahash, ahash.invert, nested ]
+    show_data combo
+
+The output of the combined array and hashes:
+
+    [[0]: { 'a' => "apple",
+	    'b' => "banana",
+	    'c' => "cherry"
+	  },
+     [1]: {  'apple' => "a",
+	    'banana' => "b",
+	    'cherry' => "c"
+	  },
+     [2]: [[0]: [[0]: "a",
+		 [1]: 1.2,
+		 [2]: "b"
+		],
+	   [1]: [[0]: "d",
+		 [1]: :symbol
+		],
+	   [2]: [[0]: [[0]: "ape",
+		       [1]: "monkey",
+		       [2]: "chimp"
+		      ],
+		 [1]: [[0]: "banana",
+		       [1]: "leaves"
+		      ],
+		 [2]: 2.99
+		]
+	  ]
+    ]
+
+Notice that the 2nd array item, an inverted hash, has its keys right aligned,
+in order to ease readability of the key - value pairs.
+
