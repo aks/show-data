@@ -9,11 +9,11 @@ Gem::Specification.new do |s|
 	EOF
   s.author     = "Alan K. Stebbens"
   s.email      = 'aks@stebbens.org'
-  s.license    = 'GPL'
+  s.license    = 'MIT'
   s.homepage   = 'https://github.com/aks/show-data'
   s.files      = ["lib/show_data.rb", 
 		  'test/test_show_data.rb',
-	          'GNU-LICENSE',
+	          'LICENSE.txt',
 		  'README.md'
 		 ]
   s.extra_rdoc_files = ['README.md']

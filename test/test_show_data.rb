@@ -5,11 +5,17 @@
 #
 # Alan K. Stebbens <aks@stebbens.org>
 
-$:.unshift '.', 'lib', '../lib'
+require 'helper'
 
-require 'show_data'
 require 'date'
 require 'time'
+
+class TestShowData < Test::Unit::TestCase
+  should "probably rename this file and start testing for real" do
+    flunk "hey buddy, you should probably rename this file and start testing for real"
+  end
+end
+
 
 array = [ 1, 2, 3, 10, 11, 12, 1.2, 34.567, 'apple', 'banana', 'cherry', :symbol1, :symbol2,
           Date.parse("2005-12-25"), Time.parse("2006-07-04 12:01:02") ]
