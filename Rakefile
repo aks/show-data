@@ -25,7 +25,13 @@ Jeweler::Tasks.new do |gem|
 	EOF
   gem.email = "aks@stebbens.org"
   gem.authors = ["Alan Stebbens"]
-  # dependencies defined in Gemfile
+  gem.files   = ["lib/show_data.rb", 
+		 'test/test_show_data.rb',
+	         'LICENSE.txt',
+		 'README.md'
+		]
+  gem.extra_rdoc_files = ['README.md']
+  gem.test_files = ['test/test_show_data.rb']
 end
 Jeweler::RubygemsDotOrgTasks.new
 
@@ -34,14 +40,6 @@ Rake::TestTask.new(:test) do |test|
   test.libs << 'lib' << 'test'
   test.pattern = 'test/**/test_*.rb'
   test.verbose = true
-end
-
-require 'rcov/rcovtask'
-Rcov::RcovTask.new do |test|
-  test.libs << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
-  test.rcov_opts << '--exclude "gems/*"'
 end
 
 task :default => :test
