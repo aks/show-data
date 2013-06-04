@@ -1,0 +1,3 @@
+Rewrite the test to compare individual test output strings with previously
+stored "reference" output strings.  This will also require a "save" feature to
+capture the current output as the "reference" output.
