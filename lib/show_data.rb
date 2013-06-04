@@ -2,13 +2,31 @@
 #
 # show_data -- show the results of any data a pretty way
 #
+#   Copyright (C) 2008-2013  Alan K. Stebbens <aks@stebbens.org>
+#
+#   This program is free software; you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation; either version 2 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with this program; if not, write to the Free Software
+#   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+#
 # Alan K. Stebbens, aks@stebbens.org, Jan 2008
+# $Revision$
+# $Id$
 #
 # 2008/10/14 aks: 
 #  Added support for OpenStruct objects
 #  Fixed symbol key representation
 
-require 'ostruct'
+#require 'ostruct'			# don't need this if we're careful
 
 def format_data(data, indent=0)
   s = ''
@@ -19,7 +37,7 @@ def format_data(data, indent=0)
     s += format_hash( data.keys, data.values, indent )
   elsif %w( Time Date DateTime ).include?(klass.to_s)
     s += data.to_s                      # use default formatting
-  elsif klass == OpenStruct
+  elsif klass.to_s == "OpenStruct"
     s += (prefix = "#<OpenStruct")
     hash = data.marshal_dump
     s += format_hash( hash.keys, hash.values, indent + prefix.length, ' ', '>' )

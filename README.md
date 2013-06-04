@@ -15,7 +15,7 @@ Certain principles are applied for increased readability, with an aesthetically 
 
 Usage:
 
-    require 'show-data'
+    require 'show_data'
     ...
     show_data any_data
 

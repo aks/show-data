@@ -5,9 +5,9 @@
 #
 # Alan K. Stebbens <aks@stebbens.org>
 
-$:.unshift '.'
+$:.unshift '.', 'lib', '../lib'
 
-require 'show-data'
+require 'show_data'
 require 'date'
 require 'time'
 
