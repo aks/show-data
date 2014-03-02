@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Alan Stebbens"]
-  s.date = "2013-06-04"
+  s.date = "2014-03-01"
   s.description = "\tFormat or pretty-print Ruby data, including arrays, hashes, and structs.\n\tThe keys ond values f the arrays and hashes are aligned for easy readability.\n\tObject attributes are similarly aligned.\n"
   s.email = "aks@stebbens.org"
   s.files = [

@@ -1,8 +1,6 @@
 #!/usr/bin/env ruby
 # test-show-data.rb
 #
-# Test show-data.rb
-#
 # Alan K. Stebbens <aks@stebbens.org>
 
 $:.unshift '.', '../test', 'test'

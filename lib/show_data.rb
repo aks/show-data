@@ -2,7 +2,7 @@
 #
 # show_data -- show the results of any data a pretty way
 #
-#   Copyright (C) 2008-2013  Alan K. Stebbens <aks@stebbens.org>
+#   Copyright (C) 2008-2014  Alan K. Stebbens <aks@stebbens.org>
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@
 # $Revision$
 # $Id$
 #
-# 2008/10/14 aks: 
+# 2008/10/14 aks:
 #  Added support for OpenStruct objects
 #  Fixed symbol key representation
 
@@ -31,7 +31,7 @@
 def format_data(data, indent=0)
   s = ''
   klass = data.class
-  if (klass == Array) 
+  if (klass == Array)
     s += format_array( data, indent )
   elsif klass == Hash
     s += format_hash( data.keys, data.values, indent )
@@ -99,10 +99,10 @@ def format_hash( hash_keys, hash_values, indent, open_char = '{', close_char = '
   maxkeylen = 0
   if right_align or right_align.nil?		# align maybe?
     #complex = 0
-    hash_keys.each_index do |x| 
+    hash_keys.each_index do |x|
       k, v = hash_keys[x], hash_values[x]
       kl = k.class == Symbol ? 1 + k.to_s.length : 2 + k.length
-      maxkeylen = kl if maxkeylen < kl 
+      maxkeylen = kl if maxkeylen < kl
       #complex += v.size if v.class == Hash || v.class == Array || v.class == OpenStruct
     end
     # if the data complexity is < 60%, and the maxkeylen is defined, then allow right-align
